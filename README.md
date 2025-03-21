@@ -68,6 +68,8 @@ Autor
 
 •	Thaissa Fernandes
 
+•	João Lira
+
 
 Primeira Entrega do Projeto
 
