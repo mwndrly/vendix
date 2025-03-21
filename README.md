@@ -2,7 +2,7 @@
 
 Este é um sistema de gerenciamento de vendas implementado em Java. Ele permite que os usuários realizem operações CRUD em produtos por meio de uma interface baseada em console.
 
-Características
+**Características**
 
 •	Adicionar novos usuários
 
@@ -28,11 +28,11 @@ Características
 
 •	Navegação baseada em menu
 
-Pré-requisitos
+**Pré-requisitos**
 
 •	Java 8 ou posterior instalado
 
-Como correr
+**Como correr**
 
 1.	Clone este repositório:
    
@@ -50,7 +50,7 @@ javac com/example/sales/SalesSystem.java
    
 java com.example.sales.SalesSystem
 
-Estrutura do código
+**Estrutura do código**
 
 •	Product.java: Representa um produto com ID, nome e preço.
 •	SalesSystem.java: Implementa as operações CRUD e fornece um menu de console para interação do usuário.
@@ -67,11 +67,11 @@ Enter product name: Laptop
 Enter product price: 1500.00
 Product added successfully!
 
-Licença
+**Licença**
 
 Este projeto está licenciado sob a Licença MIT.
 
-Autor
+**Autor**
 
 •	Mariana Ferreira(https://github.com/mwndrly)
 
@@ -82,7 +82,7 @@ Autor
 •	João Lira(https://github.com/joaosanli)
 
 
-Primeira Entrega do Projeto
+**Primeira Entrega do Projeto**
 
 1.	Histórias de Usuários
    
