@@ -5,16 +5,27 @@ Este é um sistema de gerenciamento de vendas implementado em Java. Ele permite 
 Características
 
 •	Adicionar novos usuários
+
 •	Cadastrar novos clientes
+
 •	Cadastrar novos produtos
+
 •	Ver todos os clientes
+
 •	Ver todos os produtos
+
 •	Excluir produtos
+
 •	Excluir clientes
+
 •	Realizar vendas com os produtos e clientes cadastrados
+
 •	Consultar todas as vendas realizadas
+
 •	Emitir faturas das vendas realizadas
+
 •	Consultar todas as vendas realizadas como relatório de vendas
+
 •	Navegação baseada em menu
 
 Pré-requisitos
