@@ -1,4 +1,4 @@
-VendIX
+**VendIX
 
 Este é um sistema de gerenciamento de vendas implementado em Java. Ele permite que os usuários realizem operações CRUD em produtos por meio de uma interface baseada em console.
 
