@@ -87,12 +87,14 @@ Este projeto está licenciado sob a Licença MIT.
 **Primeira Entrega do Projeto**
 
 1.	Histórias de Usuários
-   
-3.	Protótipo Lo-Fi (Figma)
+
+   https://docs.google.com/document/d/1PaPwrCkig4RHqqnr2cvEkrkAJk_JKE_y86ZC4p0UI2s/edit?tab=t.0
+  	
+2.	Protótipo Lo-Fi (Figma)
 
    https://www.figma.com/design/yFcLxvs1tjMod9DxgDkYeZ/Untitled?node-id=0-1&p=f&t=tnBBQocFu3IEGM6K-0
    
-5.	Screencast
+3.	Screencast
 
 
 
