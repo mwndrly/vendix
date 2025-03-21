@@ -81,6 +81,8 @@ Este projeto está licenciado sob a Licença MIT.
 
 •	João Lira(https://github.com/joaosanli)
 
+•  Thomas Barlavento(https://github.com/TBDcesar)
+
 
 **Primeira Entrega do Projeto**
 
