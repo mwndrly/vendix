@@ -63,8 +63,11 @@ Este projeto está licenciado sob a Licença MIT.
 Autor
 
 •	Mariana Ferreira
+
 •	Priscila Maciel
+
 •	Thaissa Fernandes
+
 
 Primeira Entrega do Projeto
 
