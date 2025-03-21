@@ -62,13 +62,13 @@ Este projeto está licenciado sob a Licença MIT.
 
 Autor
 
-•	Mariana Ferreira
+•	Mariana Ferreira(https://github.com/mwndrly)
 
-•	Priscila Maciel
+•	Priscila Maciel(https://github.com/PriscilaMdeLima)
 
-•	Thaissa Fernandes
+•	Thaissa Fernandes(https://github.com/tfsLua)
 
-•	João Lira
+•	João Lira(https://github.com/joaosanli)
 
 
 Primeira Entrega do Projeto
