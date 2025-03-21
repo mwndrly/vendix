@@ -76,6 +76,8 @@ Primeira Entrega do Projeto
 1.	Histórias de Usuários
    
 3.	Protótipo Lo-Fi (Figma)
+
+   https://www.figma.com/design/yFcLxvs1tjMod9DxgDkYeZ/Untitled?node-id=0-1&p=f&t=tnBBQocFu3IEGM6K-0
    
 5.	Screencast
 
