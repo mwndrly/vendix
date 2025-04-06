@@ -1,102 +1,62 @@
-**VendIX**
+# VendiX
+Este projeto é um sistema simples de gerenciamento de vendas desenvolvido em Java.
+Ele permite que o usuário cadastre, visualize, atualize e remova produtos por meio de uma interface interativa no terminal.
 
-Este é um sistema de gerenciamento de vendas implementado em Java. Ele permite que os usuários realizem operações CRUD em produtos por meio de uma interface baseada em console.
+## Funcionalidades
+- Adicionar, listar, editar e remover usuários
+- Adicionar, listar, editar e remover clientes
+- Adicionar, listar, editar e remover produtos
+- Adicionar e listar vendas
+- Navegação baseada em menu
 
-**Características**
+## Como executar
+1. Clone este repositório:
+   ```sh
+   git clone https://github.com/mwndrly/vendix.git
+   ```
+2. Navegue até o diretório do projeto:
+   ```sh
+   cd vendix
+   ```
+3. Compile o arquivo Java
+   ```sh
+   javac com/example/sales/SalesSystem.java
+   ```
+4. Execute o arquivo
+   ```sh
+   java com.example.sales.SalesSystem
+   ```
 
-•	Adicionar novos usuários
+## Exemplo de Uso
+```
+--- VendiX ---
+1. Adicionar produto
+2. Listar produtos
+3. Buscar produto
+4. Editar produto
+5. Remover produto
+6. Sair
 
-•	Cadastrar novos clientes
+Escolha uma opção: 1
+Insira o nome do produto: Laptop
+Insira o valor do produto: 1500.00
+Produto adicionado com sucesso!
+```
+## Recursos adicionais
+- 🎥 Transmissão de tela (youtube) [[screencast](https://youtu.be/TdjbYo1dqx0?si=8Vi5v33fVu2Eh-j3)]
+- 🧩 Protótipo (figma) [[lo-fi prototype]( https://www.figma.com/design/yFcLxvs1tjMod9DxgDkYeZ/Untitled?node-id=0-1&p=f&t=tnBBQocFu3IEGM6K-0)]
+- 📄 Histórias de usuário (google Docs) [[user Stories](https://docs.google.com/document/d/1PaPwrCkig4RHqqnr2cvEkrkAJk_JKE_y86ZC4p0UI2s/edit?tab=t.0)]
 
-•	Cadastrar novos produtos
-
-•	Ver todos os clientes
-
-•	Ver todos os produtos
-
-•	Excluir produtos
-
-•	Excluir clientes
-
-•	Realizar vendas com os produtos e clientes cadastrados
-
-•	Consultar todas as vendas realizadas
-
-•	Emitir faturas das vendas realizadas
-
-•	Consultar todas as vendas realizadas como relatório de vendas
-
-•	Navegação baseada em menu
-
-**Pré-requisitos**
-
-•	Java 8 ou posterior instalado
-
-**Como correr**
-
-1.	Clone este repositório:
-   
-git clone https://github.com/mwndrly/vendix.git
-
-3.	Navegue até o diretório do projeto:
-   
-cd vendix
-
-5.	Compile o arquivo Java:
-   
-javac com/example/sales/SalesSystem.java
-
-7.	Execute o aplicativo:
-   
-java com.example.sales.SalesSystem
-
-**Estrutura do código**
-
-•	Product.java: Representa um produto com ID, nome e preço.
-•	SalesSystem.java: Implementa as operações CRUD e fornece um menu de console para interação do usuário.
-
-Exemplo de uso
---- Sales System ---
-1. Add Product
-2. View Products
-3. Update Product
-4. Delete Product
-5. Exit
-Choose an option: 1
-Enter product name: Laptop
-Enter product price: 1500.00
-Product added successfully!
-
-**Licença**
-
+## Licença
 Este projeto está licenciado sob a Licença MIT.
 
-**Autor**
+## Autores
+- Mariana Ferreira [[@mwndrly](https://github.com/mwndrly)]
+- Priscila Maciel [[@PriscilaMdeLima](https://github.com/PriscilaMdeLima)]
+- Thaissa Fernandes [[@tfsLua](https://github.com/tfsLua)]
+- João Lira [[@joaosanli](https://github.com/joaosanli)]
+- Thomas Barlavento [[@TBDcesar](https://github.com/TBDcesar)]
 
-•	Mariana Ferreira(https://github.com/mwndrly)
-
-•	Priscila Maciel(https://github.com/PriscilaMdeLima)
-
-•	Thaissa Fernandes(https://github.com/tfsLua)
-
-•	João Lira(https://github.com/joaosanli)
-
-•  Thomas Barlavento(https://github.com/TBDcesar)
-
-
-**Primeira Entrega do Projeto**
-
-1.	Histórias de Usuários
-
-   https://docs.google.com/document/d/1PaPwrCkig4RHqqnr2cvEkrkAJk_JKE_y86ZC4p0UI2s/edit?tab=t.0
-  	
-2.	Protótipo Lo-Fi (Figma)
-
-   https://www.figma.com/design/yFcLxvs1tjMod9DxgDkYeZ/Untitled?node-id=0-1&p=f&t=tnBBQocFu3IEGM6K-0
-   
-3.	Screencast
-
-   https://youtu.be/TdjbYo1dqx0?si=8Vi5v33fVu2Eh-j3
-
-
-
+## Informações do curso
+- Nome: Programação Orientada a Objetos - 2025.1
+- Instituição: CESAR School
