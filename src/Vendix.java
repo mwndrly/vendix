@@ -35,6 +35,7 @@ public class Main {
         do {
             System.out.println("\n===== MENU =====");
             System.out.println("1. Cadastrar Usuário");
+            System.out.println("2. Login");
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
             
@@ -44,6 +45,9 @@ public class Main {
             switch (option) {
                 case 1:
                     registerUser();
+                    break;
+                case 2:
+                    login();
                     break;
                 case 0:
                     System.out.println("Encerrando o sistema...");
@@ -86,5 +90,33 @@ public class Main {
         users.add(new User(name, email, password));
         
         System.out.println("✅ Usuário cadastrado com sucesso!");
+    }
+
+    public static void login() {
+        System.out.println("\n=== Login ===");
+
+        System.out.print("E-mail: ");
+        String email = scanner.nextLine().trim();
+
+        System.out.print("Senha: ");
+        String password = scanner.nextLine();
+
+        if (email.isEmpty() || password.isEmpty()) {
+            System.out.println("❌ Preencha todos os campos.");
+            return;
+        }
+
+        for (User user : users) {
+            if (user.getEmail().equalsIgnoreCase(email)) {
+                if (user.validatePassword(password)) {
+                    System.out.println("✅ Login realizado com sucesso! Bem-vindo(a), " + user.getName() + ".");
+                } else {
+                    System.out.println("❌ Senha incorreta.");
+                }
+                return;
+            }
+        }
+
+        System.out.println("❌ E-mail não cadastrado.");
     }
 }
