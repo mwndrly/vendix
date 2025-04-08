@@ -3,7 +3,9 @@ Este projeto é um sistema simples de gerenciamento de vendas desenvolvido em Ja
 Ele permite que o usuário cadastre, visualize, atualize e remova produtos por meio de uma interface interativa no terminal.
 
 ## Funcionalidades
-- Adicionar, editar e remover usuários
+- Login
+- Cadastro e edição de usuários
+- Remoção de conta
 - Adicionar, listar, editar e remover clientes
 - Adicionar, listar, editar e remover produtos
 - Adicionar e listar vendas
@@ -29,18 +31,15 @@ Ele permite que o usuário cadastre, visualize, atualize e remova produtos por m
 
 ## Exemplo de Uso
 ```
---- VendiX ---
-1. Adicionar produto
-2. Listar produtos
-3. Buscar produto
-4. Editar produto
-5. Remover produto
-6. Sair
+=== Menu ===
 
-Escolha uma opção: 1
-Insira o nome do produto: Laptop
-Insira o valor do produto: 1500.00
-Produto adicionado com sucesso!
+1. Produtos
+2. Clientes
+3. Vendas
+4. Configurações de conta
+0. Sair
+
+Escolha uma opção: 
 ```
 ## Recursos adicionais
 - 🎥 Transmissão de tela (youtube) [[screencast](https://youtu.be/TdjbYo1dqx0?si=8Vi5v33fVu2Eh-j3)]
