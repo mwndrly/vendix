@@ -97,7 +97,7 @@ public class Main {
                     
                     System.out.println("✅ Login realizado com sucesso! Bem-vindo(a), " + user.getName() + ".");
                 } else {
-                    System.out.println("❌ Senha incorreta.");
+                    System.out.println("❌ Email e/ou senha incorretos.");
                 }
                 
                 return;
