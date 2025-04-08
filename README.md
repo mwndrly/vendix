@@ -22,11 +22,11 @@ Ele permite que o usuário cadastre, visualize, atualize e remova produtos por m
    ```
 3. Compile o arquivo Java
    ```sh
-   javac com/example/sales/SalesSystem.java
+   javac src/Main.java
    ```
 4. Execute o arquivo
    ```sh
-   java com.example.sales.SalesSystem
+   java -cp src Main
    ```
 
 ## Exemplo de Uso
