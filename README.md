@@ -3,7 +3,7 @@ Este projeto é um sistema simples de gerenciamento de vendas desenvolvido em Ja
 Ele permite que o usuário cadastre, visualize, atualize e remova produtos por meio de uma interface interativa no terminal.
 
 ## Funcionalidades
-- Adicionar, listar, editar e remover usuários
+- Adicionar, editar e remover usuários
 - Adicionar, listar, editar e remover clientes
 - Adicionar, listar, editar e remover produtos
 - Adicionar e listar vendas
