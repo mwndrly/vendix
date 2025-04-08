@@ -104,7 +104,7 @@ public class Main {
             }
         }
 
-        System.out.println("❌ E-mail não cadastrado.");       
+        System.out.println("❌ Usuário não encontrado.");       
     }
 
     public static void registerUser() {
