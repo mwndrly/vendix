@@ -45,6 +45,7 @@ Escolha uma opção:
 - 🎥 Transmissão de tela (youtube) [[screencast](https://youtu.be/TdjbYo1dqx0?si=8Vi5v33fVu2Eh-j3)]
 - 🧩 Protótipo (figma) [[lo-fi prototype]( https://www.figma.com/design/yFcLxvs1tjMod9DxgDkYeZ/Untitled?node-id=0-1&p=f&t=tnBBQocFu3IEGM6K-0)]
 - 📄 Histórias de usuário (google Docs) [[user Stories](https://docs.google.com/document/d/1PaPwrCkig4RHqqnr2cvEkrkAJk_JKE_y86ZC4p0UI2s/edit?tab=t.0)]
+- 📄 Diagrama de Classes UML (google Docs) [Diagrama de Classe UML.pdf](https://github.com/user-attachments/files/19667160/Diagrama.de.Classe.UML.pdf)
 
 ## Licença
 Este projeto está licenciado sob a Licença MIT.
