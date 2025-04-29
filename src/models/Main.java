@@ -197,7 +197,7 @@ public class Main {
     public static void showAccountMenu() {
         System.out.println("\n=== Configurações da Conta ===");
         System.out.println("1. Editar Perfil");
-        System.out.println("2. Remover Conta");
+        System.out.println("2. Excluir Conta");
         System.out.println("0. Voltar");
         System.out.print("Escolha uma opção: ");
 
@@ -259,9 +259,9 @@ public class Main {
         if (confirm.equals("s")) {
             users.remove(loggedUser);
             loggedUser = null;
-            System.out.println("✅ Conta removida com sucesso.");
+            System.out.println("✅ Conta excluida com sucesso.");
         } else {
-            System.out.println("Remoção cancelada.");
+            System.out.println("Exclusão cancelada.");
         }
     }
 }
