@@ -1,23 +1,31 @@
+package models;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    private static ArrayList<User> users = new ArrayList<>();
-    private static ArrayList<Product> products = new ArrayList<>();
-    private static Scanner scanner = new Scanner(System.in);
-    private static User loggedUser = null;
+    public static ArrayList<User> users = new ArrayList<>();
+    public static ArrayList<Product> products = new ArrayList<>();
+    public static Scanner scanner = new Scanner(System.in);
+    public static User loggedUser = null;
+
+    // necessário para testes
+    public Main(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     public static void main(String[] args) {
+        Main app = new Main(scanner);
         while (true) {
             if (loggedUser == null) {
-                showWelcomeMenu();
+                app.showWelcomeMenu();
             } else {
-                showMainMenu();
+                app.showMainMenu();
             }
         }
     }
 
-    private static void showWelcomeMenu() {
+    public static void showWelcomeMenu() {
         System.out.println("\n=== VendiX ===");
         System.out.println("1. Login");
         System.out.println("2. Cadastrar");
@@ -34,7 +42,7 @@ public class Main {
         }
     }
 
-    private static void login() {
+    public static void login() {
         System.out.println("\n=== Login ===");
 
         System.out.print("E-mail: ");
@@ -63,7 +71,7 @@ public class Main {
         System.out.println("❌ Usuário não encontrado.");
     }
 
-    private static void registerUser() {
+    public static void registerUser() {
         System.out.println("\n=== Cadastro de Usuário ===");
 
         System.out.print("Nome: ");
@@ -96,7 +104,7 @@ public class Main {
         System.out.println("✅ Usuário cadastrado com sucesso!");
     }
 
-    private static void showMainMenu() {
+    public static void showMainMenu() {
         System.out.println("\n=== Menu ===");
         System.out.println("1. Produtos");
         System.out.println("2. Clientes (em breve)");
@@ -115,7 +123,7 @@ public class Main {
         }
     }
 
-    private static void showProductMenu() {
+    public static void showProductMenu() {
         System.out.println("\n=== Produtos ===");
         System.out.println("1. Cadastrar Produto");
         System.out.println("2. Listar Produtos");
@@ -132,7 +140,7 @@ public class Main {
         }
     }
 
-    private static void registerProduct() {
+    public static void registerProduct() {
         System.out.println("\n=== Cadastro de Produto ===");
 
         System.out.print("Nome do produto: ");
@@ -174,7 +182,7 @@ public class Main {
         System.out.println("✅ Produto cadastrado com sucesso!");
     }
 
-    private static void listProducts() {
+    public static void listProducts() {
         System.out.println("\n=== Lista de Produtos ===");
         if (products.isEmpty()) {
             System.out.println("Nenhum produto cadastrado.");
@@ -186,7 +194,7 @@ public class Main {
         }
     }
 
-    private static void showAccountMenu() {
+    public static void showAccountMenu() {
         System.out.println("\n=== Configurações da Conta ===");
         System.out.println("1. Editar Perfil");
         System.out.println("2. Remover Conta");
@@ -203,7 +211,7 @@ public class Main {
         }
     }
 
-    private static void editUser() {
+    public static void editUser() {
         System.out.println("\n=== Editar Perfil ===");
 
         System.out.print("Novo nome (aperte Enter para manter): ");
@@ -243,7 +251,7 @@ public class Main {
         System.out.println("Perfil atualizado com sucesso.");
     }
 
-    private static void removeAccount() {
+    public static void removeAccount() {
         System.out.println("\n=== Remover Conta ===");
         System.out.print("Tem certeza que deseja remover sua conta? (s/n): ");
         String confirm = scanner.nextLine().trim().toLowerCase();
