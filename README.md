@@ -47,6 +47,7 @@ Escolha uma opção:
 - 📄 Diagrama de Classes UML (pdf) [[class diagram](https://github.com/user-attachments/files/19667160/Diagrama.de.Classe.UML.pdf)]
 - 🎥 Transmissão de tela v1 (youtube) [[screencast](https://youtu.be/TdjbYo1dqx0?si=8Vi5v33fVu2Eh-j3)]
 - 🎥 Transmissão de tela v2 (youtube) [[screencast](https://youtu.be/SNgJSEOLIPY?si=0twoJK9GcEEsPbp8)]
+- 📄 Histórias de usuário (PDF) 
 
 ## Licença
 Este projeto está licenciado sob a Licença MIT.
