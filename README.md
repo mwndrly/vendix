@@ -1,6 +1,6 @@
 # VendiX
 Este projeto é um sistema simples de gerenciamento de vendas desenvolvido em Java.
-Ele permite que o usuário cadastre, visualize, atualize e remova produtos por meio de uma interface interativa no terminal.
+Ele permite que o usuário cadastre, visualize, atualize e remova clientes e produtos, realize vendas, por meio de uma interface interativa no terminal.
 
 ## Funcionalidades
 - Login
