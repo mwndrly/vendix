@@ -56,7 +56,7 @@ Este projeto está licenciado sob a Licença MIT.
 
 ## Autores
 - Mariana Ferreira [[@mwndrly](https://github.com/mwndrly)]
-- Priscila Maciel [[@PriscilaMdeLima](https://github.com/PriscilaMdeLima)]
+- Priscila Maciel de Lima [[@PriscilaMdeLima](https://github.com/PriscilaMdeLima)]
 - Thaissa Fernandes [[@tfsLua](https://github.com/tfsLua)]
 - João Lira [[@joaosanli](https://github.com/joaosanli)]
 - Thomas Barlavento [[@TBDcesar](https://github.com/TBDcesar)]
