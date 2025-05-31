@@ -20,13 +20,13 @@ Ele permite que o usuário cadastre, visualize, atualize e remova clientes e pro
    ```sh
    cd vendix
    ```
-3. Compile o arquivo Java
+3. Dê permissão de execução ao script de build (apenas uma vez):
    ```sh
-   javac src/Main.java
+   chmod +x build.sh
    ```
-4. Execute o arquivo
+4. Compile e execute o projeto:
    ```sh
-   java -cp src Main
+   ./build.sh
    ```
 
 ## Exemplo de Uso
@@ -39,7 +39,7 @@ Ele permite que o usuário cadastre, visualize, atualize e remova clientes e pro
 4. Configurações de conta
 0. Sair
 
-Escolha uma opção: 
+Escolha uma opção:
 ```
 ## Recursos adicionais
 - 🧩 Protótipo (figma) [[lo-fi prototype](https://www.figma.com/design/yFcLxvs1tjMod9DxgDkYeZ/Untitled?node-id=0-1&p=f&t=tnBBQocFu3IEGM6K-0)]
