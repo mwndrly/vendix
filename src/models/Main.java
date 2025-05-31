@@ -138,6 +138,7 @@ public class Main {
         System.out.println("1. Cadastrar Produto");
         System.out.println("2. Listar Produtos");
 		System.out.println("3. Editar Produto");
+		System.out.println("3. Remover Produto");
         System.out.println("0. Voltar");
         System.out.print("Escolha uma opção: ");
 
@@ -147,6 +148,7 @@ public class Main {
             case "1": registerProduct(); break;
             case "2": listProducts(); break;
 			case "3": editProduct(); break;
+			case "4": removeProduct(); break;
             case "0": return;
             default: System.out.println("Opção inválida.");
         }
@@ -269,6 +271,35 @@ public class Main {
 
 		DataManager.saveToFile("products.dat", products);
 		System.out.println("✅ Produto atualizado com sucesso.");
+	}
+
+	public static void removeProduct() {
+		System.out.println("Digite o nome do produto a ser removido:");
+		String name = scanner.nextLine().trim();
+
+		Product productToRemove = null;
+
+		for (Product p : products) {
+			if (p.getName().equalsIgnoreCase(name)) {
+				productToRemove = p;
+				break;
+			}
+		}
+
+		if (productToRemove == null) {
+			System.out.println("Produto não encontrado.");
+			return;
+		}
+
+		System.out.printf("Tem certeza que deseja remover o produto '%s'? (s/n): ", productToRemove.getName());
+		String confirmation = scanner.nextLine().trim().toLowerCase();
+
+		if (confirmation.equals("s")) {
+			products.remove(productToRemove);
+			System.out.println("Produto removido com sucesso!");
+		} else {
+			System.out.println("Remoção cancelada.");
+		}
 	}
 
     public static void showAccountMenu() {
