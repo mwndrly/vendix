@@ -14,4 +14,17 @@ public class ProductTest {
         assertEquals(100.0, product.getPrice());
         assertEquals(10, product.getQuantity());
     }
+
+    @Test
+    public void testProductSetters() {
+        Product product = new Product("Produto 1", 100.0, 10);
+
+        product.setName("Produto Editado");
+        product.setPrice(150.5);
+        product.setQuantity(20);
+
+        assertEquals("Produto Editado", product.getName());
+        assertEquals(150.5, product.getPrice());
+        assertEquals(20, product.getQuantity());
+    }
 }
