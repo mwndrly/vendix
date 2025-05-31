@@ -8,6 +8,7 @@ public class Main {
     public static ArrayList<User> users = new ArrayList<>();
     public static ArrayList<Product> products = new ArrayList<>();
 	public static ArrayList<Client> clients = new ArrayList<>();
+	public static ArrayList<Sale> sales = new ArrayList<>();
 
 	public static Scanner scanner = new Scanner(System.in);
     public static User loggedUser = null;
@@ -21,6 +22,7 @@ public class Main {
         users = DataManager.loadFromFile("users.dat");
         products = DataManager.loadFromFile("products.dat");
         clients = DataManager.loadFromFile("clients.dat");
+		sales = DataManager.loadFromFile("sales.dat");
 
         Main app = new Main(scanner);
 
@@ -118,7 +120,7 @@ public class Main {
         System.out.println("\n=== Menu ===");
         System.out.println("1. Produtos");
         System.out.println("2. Clientes");
-        System.out.println("3. Vendas (em breve)");
+        System.out.println("3. Vendas");
         System.out.println("4. Configurações de conta");
         System.out.println("0. Sair");
         System.out.print("Escolha uma opção: ");
@@ -128,6 +130,7 @@ public class Main {
         switch (option) {
             case "1": showProductMenu(); break;
             case "2": showClientMenu(); break;
+			case "3": showSalesMenu(); break;
             case "4": showAccountMenu(); break;
             case "0":
                 loggedUser = null;
@@ -539,4 +542,130 @@ public class Main {
             default: System.out.println("Opção inválida.");
         }
     }
+
+	public static void showSalesMenu() {
+		System.out.println("\n=== Vendas ===");
+		System.out.println("1. Registrar Venda");
+		System.out.println("2. Listar Vendas");
+		System.out.println("0. Voltar");
+		System.out.print("Escolha uma opção: ");
+
+		String option = scanner.nextLine();
+
+		switch (option) {
+			case "1": registerSale(); break;
+			case "2": listSales(); break;
+			case "0": return;
+			default: System.out.println("Opção inválida.");
+		}
+	}
+
+	public static void registerSale() {
+		System.out.println("\n=== Registrar Venda ===");
+
+		if (clients.isEmpty()) {
+			System.out.println("Nenhum cliente cadastrado.");
+			return;
+		}
+
+		if (products.isEmpty()) {
+			System.out.println("Nenhum produto cadastrado.");
+			return;
+		}
+
+		System.out.println("Selecione o cliente:");
+
+		for (int i = 0; i < clients.size(); i++) {
+			System.out.println((i + 1) + ". " + clients.get(i).getName());
+		}
+
+		System.out.print("Digite o número do cliente: ");
+		int clientIndex;
+
+		try {
+			clientIndex = Integer.parseInt(scanner.nextLine()) - 1;
+			if (clientIndex < 0 || clientIndex >= clients.size()) {
+				System.out.println("Cliente inválido.");
+				return;
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("Entrada inválida.");
+			return;
+		}
+
+		Client client = clients.get(clientIndex);
+
+		System.out.println("Selecione o produto:");
+
+		for (int i = 0; i < products.size(); i++) {
+			System.out.println((i + 1) + ". " + products.get(i).getName() + " (Estoque: " + products.get(i).getQuantity() + ")");
+		}
+
+		System.out.print("Digite o número do produto: ");
+		int productIndex;
+
+		try {
+			productIndex = Integer.parseInt(scanner.nextLine()) - 1;
+			if (productIndex < 0 || productIndex >= products.size()) {
+				System.out.println("Produto inválido.");
+				return;
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("Entrada inválida.");
+			return;
+		}
+
+		Product product = products.get(productIndex);
+
+		System.out.print("Quantidade: ");
+		int quantity;
+
+		try {
+			quantity = Integer.parseInt(scanner.nextLine());
+
+			if (quantity <= 0) {
+				System.out.println("Quantidade inválida.");
+				return;
+			}
+
+			if (quantity > product.getQuantity()) {
+				System.out.println("Quantidade excede o estoque disponível.");
+				return;
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("Entrada inválida.");
+			return;
+		}
+
+		product.setQuantity(product.getQuantity() - quantity);
+
+		Sale sale = new Sale(client, product, quantity);
+		sales.add(sale);
+
+		DataManager.saveToFile("products.dat", products);
+		DataManager.saveToFile("sales.dat", sales);
+
+		System.out.println("✅ Venda registrada com sucesso.");
+	}
+
+	public static void listSales() {
+		System.out.println("\n=== Lista de Vendas ===");
+
+		if (sales.isEmpty()) {
+			System.out.println("Nenhuma venda registrada.");
+			return;
+		}
+
+		for (int i = 0; i < sales.size(); i++) {
+			Sale sale = sales.get(i);
+
+			System.out.printf("%d. Cliente: %s | Produto: %s | Quantidade: %d | Total: R$ %.2f\n",
+				(i + 1),
+				sale.getClient().getName(),
+				sale.getProduct().getName(),
+				sale.getQuantity(),
+				sale.getProduct().getPrice() * sale.getQuantity()
+			);
+		}
+	}
 }
