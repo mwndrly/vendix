@@ -1,5 +1,6 @@
 package models;
 
+import utils.DataManager;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,7 +16,11 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        users = DataManager.loadFromFile("users.dat");
+        products = DataManager.loadFromFile("products.dat");
+
         Main app = new Main(scanner);
+
         while (true) {
             if (loggedUser == null) {
                 app.showWelcomeMenu();
@@ -101,6 +106,8 @@ public class Main {
         }
 
         users.add(new User(name, email, password));
+
+        DataManager.saveToFile("users.dat", users);
         System.out.println("✅ Usuário cadastrado com sucesso!");
     }
 
@@ -118,7 +125,10 @@ public class Main {
         switch (option) {
             case "1": showProductMenu(); break;
             case "4": showAccountMenu(); break;
-            case "0": loggedUser = null; System.out.println("Logout realizado com sucesso."); break;
+            case "0":
+                loggedUser = null;
+                System.out.println("Logout realizado com sucesso.");
+                break;
             default: System.out.println("Opção inválida.");
         }
     }
@@ -179,6 +189,7 @@ public class Main {
         }
 
         products.add(new Product(name, price, quantity));
+        DataManager.saveToFile("products.dat", products);
         System.out.println("✅ Produto cadastrado com sucesso!");
     }
 
@@ -248,6 +259,7 @@ public class Main {
             loggedUser.setPassword(newPassword);
         }
 
+        DataManager.saveToFile("users.dat", users);
         System.out.println("Perfil atualizado com sucesso.");
     }
 
@@ -259,7 +271,8 @@ public class Main {
         if (confirm.equals("s")) {
             users.remove(loggedUser);
             loggedUser = null;
-            System.out.println("✅ Conta excluida com sucesso.");
+            DataManager.saveToFile("users.dat", users);
+            System.out.println("✅ Conta excluída com sucesso.");
         } else {
             System.out.println("Exclusão cancelada.");
         }
