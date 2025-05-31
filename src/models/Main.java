@@ -7,7 +7,9 @@ import java.util.Scanner;
 public class Main {
     public static ArrayList<User> users = new ArrayList<>();
     public static ArrayList<Product> products = new ArrayList<>();
-    public static Scanner scanner = new Scanner(System.in);
+	public static ArrayList<Client> clients = new ArrayList<>();
+
+	public static Scanner scanner = new Scanner(System.in);
     public static User loggedUser = null;
 
     // necessário para testes
@@ -18,6 +20,7 @@ public class Main {
     public static void main(String[] args) {
         users = DataManager.loadFromFile("users.dat");
         products = DataManager.loadFromFile("products.dat");
+        clients = DataManager.loadFromFile("clients.dat");
 
         Main app = new Main(scanner);
 
@@ -114,7 +117,7 @@ public class Main {
     public static void showMainMenu() {
         System.out.println("\n=== Menu ===");
         System.out.println("1. Produtos");
-        System.out.println("2. Clientes (em breve)");
+        System.out.println("2. Clientes");
         System.out.println("3. Vendas (em breve)");
         System.out.println("4. Configurações de conta");
         System.out.println("0. Sair");
@@ -124,6 +127,7 @@ public class Main {
 
         switch (option) {
             case "1": showProductMenu(); break;
+            case "2": showClientMenu(); break;
             case "4": showAccountMenu(); break;
             case "0":
                 loggedUser = null;
@@ -138,7 +142,7 @@ public class Main {
         System.out.println("1. Cadastrar Produto");
         System.out.println("2. Listar Produtos");
 		System.out.println("3. Editar Produto");
-		System.out.println("3. Remover Produto");
+		System.out.println("4. Remover Produto");
         System.out.println("0. Voltar");
         System.out.print("Escolha uma opção: ");
 
@@ -193,7 +197,8 @@ public class Main {
         }
 
         products.add(new Product(name, price, quantity));
-        DataManager.saveToFile("products.dat", products);
+
+		DataManager.saveToFile("products.dat", products);
         System.out.println("✅ Produto cadastrado com sucesso!");
     }
 
@@ -353,6 +358,7 @@ public class Main {
                 System.out.println("A senha deve ter no mínimo 6 caracteres.");
                 return;
             }
+
             loggedUser.setPassword(newPassword);
         }
 
@@ -372,6 +378,165 @@ public class Main {
             System.out.println("✅ Conta excluída com sucesso.");
         } else {
             System.out.println("Exclusão cancelada.");
+        }
+    }
+
+	public static void registerClient() {
+		System.out.println("\n=== Cadastro de Cliente ===");
+
+		System.out.print("Nome: ");
+		String name = scanner.nextLine().trim();
+
+		System.out.print("Email: ");
+		String email = scanner.nextLine().trim();
+
+		System.out.print("CPF: ");
+		String cpf = scanner.nextLine().trim();
+
+		if (name.isEmpty() || email.isEmpty() || cpf.isEmpty()) {
+			System.out.println("Erro: Todos os campos são obrigatórios.");
+			return;
+		}
+
+		if (!email.matches("^[\\w\\.-]+@[\\w\\.-]+\\.\\w{2,}$")) {
+			System.out.println("Erro: Email inválido.");
+			return;
+		}
+
+		if (!cpf.matches("\\d{11}")) {
+			System.out.println("Erro: CPF deve conter 11 dígitos numéricos.");
+			return;
+		}
+
+		boolean emailExists = clients.stream().anyMatch(c -> c.getEmail().equalsIgnoreCase(email));
+		boolean cpfExists = clients.stream().anyMatch(c -> c.getCpf().equals(cpf));
+
+		if (emailExists) {
+			System.out.println("Erro: Este email já está cadastrado.");
+			return;
+		}
+
+		if (cpfExists) {
+			System.out.println("Erro: Este CPF já está cadastrado.");
+			return;
+		}
+
+		clients.add(new Client(name, email, cpf));
+
+		DataManager.saveToFile("clients.dat", clients);
+		System.out.println("Cliente cadastrado com sucesso!");
+	}
+
+	public static void listClients() {
+		System.out.println("\n=== Lista de Clientes ===");
+
+		if (clients.isEmpty()) {
+			System.out.println("Nenhum cliente cadastrado.");
+			return;
+		}
+
+		for (int i = 0; i < clients.size(); i++) {
+			System.out.println((i + 1) + ". " + clients.get(i));
+		}
+	}
+
+	public static void editClient() {
+		System.out.println("\n=== Editar Cliente ===");
+		System.out.print("Digite o nome do cliente a ser editado: ");
+		String nameToEdit = scanner.nextLine().trim();
+
+		Client clientToEdit = null;
+
+		for (Client client : clients) {
+			if (client.getName().equalsIgnoreCase(nameToEdit)) {
+				clientToEdit = client;
+				break;
+			}
+		}
+
+		if (clientToEdit == null) {
+			System.out.println("❌ Cliente não encontrado.");
+			return;
+		}
+
+		System.out.print("Novo nome (aperte Enter para manter): ");
+		String newName = scanner.nextLine().trim();
+
+		if (!newName.isEmpty()) {
+			clientToEdit.setName(newName);
+		}
+
+		System.out.print("Novo email (aperte Enter para manter): ");
+		String newEmail = scanner.nextLine().trim();
+
+		if (!newEmail.isEmpty() && !newEmail.equals(clientToEdit.getEmail())) {
+			if (clients.stream().anyMatch(c -> c.getEmail().equalsIgnoreCase(newEmail))) {
+				System.out.println("Email já cadastrado.");
+				return;
+			}
+
+			clientToEdit.setEmail(newEmail);
+		}
+
+		System.out.print("Novo CPF (aperte Enter para manter): ");
+		String newCPF = scanner.nextLine();
+
+		if (!newCPF.isEmpty() && !newCPF.equals(clientToEdit.getCpf())) {
+			if (clients.stream().anyMatch(c -> c.getCpf().equals(newCPF))) {
+				System.out.println("CPF já cadastrado.");
+				return;
+			}
+
+			clientToEdit.setCpf(newCPF);
+		}
+
+		DataManager.saveToFile("clients.dat", clients);
+		System.out.println("Cliente atualizado com sucesso.");
+	}
+
+	public static void removeClient() {
+		System.out.print("\nDigite o nome do cliente que deseja remover: ");
+		String name = scanner.nextLine().trim();
+
+		Client clientToRemove = clients.stream()
+			.filter(c -> c.getName().equalsIgnoreCase(name))
+			.findFirst()
+			.orElse(null);
+
+		if (clientToRemove == null) {
+			System.out.println("Cliente não encontrado.");
+			return;
+		}
+
+		System.out.print("Tem certeza que deseja remover " + clientToRemove.getName() + "? (s/n): ");
+		String confirm = scanner.nextLine();
+
+		if (confirm.equalsIgnoreCase("s")) {
+			clients.remove(clientToRemove);
+			System.out.println("Cliente removido com sucesso.");
+		} else {
+			System.out.println("Remoção cancelada.");
+		}
+	}
+
+	public static void showClientMenu() {
+        System.out.println("\n=== Clientes ===");
+        System.out.println("1. Cadastrar Cliente");
+        System.out.println("2. Listar Clientes");
+		System.out.println("3. Editar Cliente");
+		System.out.println("4. Remover Cliente");
+        System.out.println("0. Voltar");
+        System.out.print("Escolha uma opção: ");
+
+        String option = scanner.nextLine();
+
+        switch (option) {
+            case "1": registerClient(); break;
+            case "2": listClients(); break;
+			case "3": editClient(); break;
+			case "4": removeClient(); break;
+            case "0": return;
+            default: System.out.println("Opção inválida.");
         }
     }
 }
