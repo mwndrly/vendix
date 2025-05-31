@@ -137,6 +137,7 @@ public class Main {
         System.out.println("\n=== Produtos ===");
         System.out.println("1. Cadastrar Produto");
         System.out.println("2. Listar Produtos");
+		System.out.println("3. Editar Produto");
         System.out.println("0. Voltar");
         System.out.print("Escolha uma opção: ");
 
@@ -145,6 +146,7 @@ public class Main {
         switch (option) {
             case "1": registerProduct(); break;
             case "2": listProducts(); break;
+			case "3": editProduct(); break;
             case "0": return;
             default: System.out.println("Opção inválida.");
         }
@@ -204,6 +206,70 @@ public class Main {
             System.out.println("Nome: " + product.getName() + " | Preço: R$" + product.getPrice() + " | Quantidade: " + product.getQuantity());
         }
     }
+
+	public static void editProduct() {
+		System.out.println("\n=== Editar Produto ===");
+		System.out.print("Digite o nome do produto a ser editado: ");
+		String nameToEdit = scanner.nextLine().trim();
+
+		Product productToEdit = null;
+
+		for (Product product : products) {
+			if (product.getName().equalsIgnoreCase(nameToEdit)) {
+				productToEdit = product;
+				break;
+			}
+		}
+
+		if (productToEdit == null) {
+			System.out.println("❌ Produto não encontrado.");
+			return;
+		}
+
+		System.out.print("Novo nome (aperte Enter para manter): ");
+		String newName = scanner.nextLine().trim();
+
+		System.out.print("Novo preço (aperte Enter para manter): ");
+		String newPriceStr = scanner.nextLine().trim();
+
+		System.out.print("Nova quantidade (aperte Enter para manter): ");
+		String newQuantityStr = scanner.nextLine().trim();
+
+		if (!newName.isEmpty()) {
+			productToEdit.setName(newName);
+		}
+
+		if (!newPriceStr.isEmpty()) {
+			try {
+				double newPrice = Double.parseDouble(newPriceStr);
+				if (newPrice < 0) {
+					System.out.println("❌ O preço não pode ser negativo.");
+					return;
+				}
+				productToEdit.setPrice(newPrice);
+			} catch (NumberFormatException e) {
+				System.out.println("❌ Preço inválido.");
+				return;
+			}
+		}
+
+		if (!newQuantityStr.isEmpty()) {
+			try {
+				int newQuantity = Integer.parseInt(newQuantityStr);
+				if (newQuantity < 0) {
+					System.out.println("❌ A quantidade não pode ser negativa.");
+					return;
+				}
+				productToEdit.setQuantity(newQuantity);
+			} catch (NumberFormatException e) {
+				System.out.println("❌ Quantidade inválida.");
+				return;
+			}
+		}
+
+		DataManager.saveToFile("products.dat", products);
+		System.out.println("✅ Produto atualizado com sucesso.");
+	}
 
     public static void showAccountMenu() {
         System.out.println("\n=== Configurações da Conta ===");
