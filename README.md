@@ -49,7 +49,7 @@ Escolha uma opção:
 - 🎥 Transmissão de tela v1 (youtube) [[screencast](https://youtu.be/TdjbYo1dqx0?si=8Vi5v33fVu2Eh-j3)]
 - 🎥 Transmissão de tela v2 (youtube) [[screencast](https://youtu.be/SNgJSEOLIPY?si=0twoJK9GcEEsPbp8)]
 - 🎥 Transmissão de tela v3 (youtube) [[screencast](https://youtu.be/mpEj-hQhj_4?si=4L7h9keRZYiYyTOC)]
-- 🎥 Transmissão de tela v4 (youtube) [[screencast](https://youtu.be/mpEj-hQhj_4?si=4L7h9keRZYiYyTOC)]
+- 🎥 Transmissão de tela v4 (youtube) [[screencast](https://youtu.be/NwTSZ8SLOHg?si=imDBqaGt3DPdKV6O)]
 - 📄 Issue/bug  (Jira) [[Issue/bug](https://cesar-team-kx5ksoza.atlassian.net/jira/software/projects/OPS/boards/1)]
 
 ## Licença
